@@ -1,44 +1,142 @@
+body {
+    background: linear-gradient(palegreen, rgb(221, 245, 124));
+    height: 100vh;
+}
+
+#gameStart {
+    width: 90%;
+    justify-content: center;
+    text-align: center;
+    background-color: coral;
+    padding: 1rem;
+    border-radius: 1em;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin: 0 auto;
+    overflow: hidden;
+
+}
+
+#gameStart h1 {
+    width: 40rem;
+    margin: 0 auto;
+    font-weight: bolder;
+    color: white;
+    font-size: 3rem;
+    justify-content: center;
+}
+
+label {
+    color: white;
+    font-weight: bold;
+}
+
+input {
+    position: relative;
+    width: 30rem;
+    justify-content: center;
+    height: 3px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 1rem;
+    border-radius: 6px;
+}
+
+#wide,
+#high {
+    width: 5rem;
+}
+
+button {
+    background-color: cornflowerblue;
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    font-size: 1rem;
+    border-radius: 0.3em;
+    padding: .3em;
+
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+#game {
+    width: 90%;
+    position: relative;
+    margin: 0 auto;
+    padding: 2em;
+    display: table;
+
+}
+
+#container {
+    width: 80%;
+    height: 80%;
+    margin: 0 auto;
+    justify-content: center;
+    display: table;
+    overflow: hidden;
+}
+
 /* game board table */
+#board {
+    width: auto;
+    margin: 0 auto;
+    position: relative;
+}
 
 #board td {
     width: 50px;
     height: 50px;
-    border: solid 1px #666;
+    border: solid 2px rgb(0, 166, 255);
+    border-radius: 10px;
+    background-color: lightblue;
+
 }
 
-/* pieces are div within game table cells: draw as colored circles */
-
 .piece {
-    /* TODO: make into circles */
     margin: 5px;
     width: 80%;
     height: 80%;
-    border: 1px;
-    border-radius: 90px;
-
+    border-radius: 50%;
+    animation-name: bounce;
+    animation-fill-mode: both;
+    animation-duration: 1s;
 }
 
 .p1 {
-    /* TODO: make into circles */
-    color: red;
-    background-color: red;
+    background-image: url("../../images/red_ball.png");
 }
 
 .p2 {
-    /* TODO: make into circles */
-    color: blue;
-    background-color: blue;
+    background-image: url("../../images/blue_ball.png");
 }
 
-
-/* TODO: make pieces red/blue,  depending on player 1/2 piece */
-
-/* column-top is table row of clickable areas for each column */
-
 #column-top td {
-    border: dashed 1px lightgray;
+    border: dashed 3px lightblue;
+    transition: 150ms;
+    background-color: plum;
 }
 
 #column-top td:hover {
-    background-color: gold;
+    background-color: lightblue;
+    border-color: plum;
+}
+
+
+@keyframes bounce {
+    0% {
+        opacity: 0;
+        transform: translateY(-2000px) rotate(-45deg);
+    }
+
+    60% {
+        opacity: 1;
+        transform: scaleY(0.6) translateY(30px) rotate(-45deg);
+    }
+
+    100% {
+        transform: scaleY(1) translateY(0) rotate(-45deg);
+    }
 }
